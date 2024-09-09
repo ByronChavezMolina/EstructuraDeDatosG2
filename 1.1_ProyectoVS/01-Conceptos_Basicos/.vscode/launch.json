@@ -1,0 +1,42 @@
+{
+    // Use IntelliSense para saber los atributos posibles.
+    // Mantenga el puntero para ver las descripciones de los existentes atributos.
+    // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Principal",
+            "request": "launch",
+            "mainClass": "edu.mx.uttt.Iterativos.Principal",
+            "projectName": "01-Conceptos_Basicos_dc137d5b"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "01-Conceptos_Basicos_dc137d5b"
+        },
+        {
+            "type": "java",
+            "name": "PruebaSerie",
+            "request": "launch",
+            "mainClass": "edu.mx.uttt.Iterativos.PruebaSerie",
+            "projectName": "01-Conceptos_Basicos_dc137d5b"
+        },
+        {
+            "type": "java",
+            "name": "PruebaSerieFactorial",
+            "request": "launch",
+            "mainClass": "edu.mx.uttt.Iterativos.PruebaSerieFactorial",
+            "projectName": "01-Conceptos_Basicos_dc137d5b"
+        }
+    ]
+}
