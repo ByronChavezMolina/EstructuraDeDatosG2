@@ -16,7 +16,19 @@ public class SerieNumerica {
     }
     
     public int calcularSerie() {
-        for (int i = 0; i < array.length; i++) {
-            
+        // Caso base
+        if (this.n == 0) {
+            return 0;
         }
+        
+        // Caso recursivo
+        return this.n + calcularSerie(this.n - 1);
+        for (int i = 0; i <=this.n; i++) {
+                   
+            System.out.println("Hola Mundo");
+
+        }
+
+
+}
 }
