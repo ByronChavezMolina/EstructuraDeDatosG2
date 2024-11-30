@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>NodoLista.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #e0474b;}
+.s1 { color: #f8f8f2;}
+.s2 { color: #735253; font-style: italic;}
+.s3 { color: #4fcad5;}
+</style>
+</head>
+<body bgcolor="#050000">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+NodoLista.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">edu.mx.uttt.listasSimples;</span>
+
+<span class="s0">public class </span><span class="s1">NodoLista {</span>
+    <span class="s2">//variables de instancia</span>
+    <span class="s0">public int </span><span class="s1">dato;</span>
+    <span class="s0">public </span><span class="s1">NodoLista sigNodo;</span>
+    <span class="s0">public </span><span class="s1">NodoLista primerNodo;</span>
+
+    <span class="s0">public </span><span class="s1">NodoLista(</span><span class="s0">int </span><span class="s1">dato){</span>
+        <span class="s0">this</span><span class="s1">(dato</span><span class="s3">,</span><span class="s0">null</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public </span><span class="s1">NodoLista (</span><span class="s0">int </span><span class="s1">dato</span><span class="s3">,</span><span class="s1">NodoLista sigNodo){</span>
+        <span class="s0">this</span><span class="s1">.dato</span><span class="s3">=</span><span class="s1">dato;</span>
+        <span class="s0">this</span><span class="s1">.sigNodo</span><span class="s3">=</span><span class="s1">sigNodo;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public int </span><span class="s1">getDato() {</span>
+        <span class="s0">return </span><span class="s1">dato;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public </span><span class="s1">NodoLista getPrimerNodo() {</span>
+        <span class="s0">return </span><span class="s1">primerNodo;</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+</pre>
+</body>
+</html>

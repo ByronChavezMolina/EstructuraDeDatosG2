@@ -1,0 +1,195 @@
+<html>
+<head>
+<title>Lista.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #e0474b;}
+.s1 { color: #f8f8f2;}
+.s2 { color: #735253; font-style: italic;}
+.s3 { color: #f6e3cc;}
+.s4 { color: #4fcad5;}
+.s5 { color: #e4ff10;}
+</style>
+</head>
+<body bgcolor="#050000">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Lista.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">edu.mx.uttt.listasSimples;</span>
+<span class="s0">import </span><span class="s1">edu.mx.uttt.listasSimples.NodoLista;</span>
+<span class="s0">public class </span><span class="s1">Lista {</span>
+    <span class="s2">// Variables de instancia</span>
+    <span class="s0">private </span><span class="s1">String nombreLista;</span>
+    <span class="s0">protected </span><span class="s1">NodoLista primerNodo;</span>
+    <span class="s0">private </span><span class="s1">NodoLista ultimoNodo;</span>
+
+    <span class="s2">// Constructor vacío (sin parámetros)</span>
+    <span class="s0">public </span><span class="s1">Lista() {</span>
+        <span class="s0">this</span><span class="s1">(</span><span class="s3">&quot;Lista Simple&quot;</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s2">// Constructor con parámetros</span>
+    <span class="s0">public </span><span class="s1">Lista(String nombreLista) {</span>
+        <span class="s0">this</span><span class="s1">.nombreLista </span><span class="s4">= </span><span class="s1">nombreLista;</span>
+        <span class="s1">primerNodo </span><span class="s4">= </span><span class="s1">ultimoNodo </span><span class="s4">= </span><span class="s0">null</span><span class="s1">;</span>
+    <span class="s1">}</span>
+
+    <span class="s2">// Método para verificar si la lista está vacía</span>
+    <span class="s0">public boolean </span><span class="s1">estaVacia() {</span>
+        <span class="s0">return </span><span class="s1">primerNodo </span><span class="s4">== </span><span class="s0">null</span><span class="s1">;</span>
+    <span class="s1">}</span>
+
+    <span class="s2">// Insertar al frente</span>
+    <span class="s0">public void </span><span class="s1">insertarAlFrente(</span><span class="s0">int </span><span class="s1">dato) {</span>
+        <span class="s0">if </span><span class="s1">(estaVacia()) {</span>
+            <span class="s1">primerNodo </span><span class="s4">= </span><span class="s1">ultimoNodo </span><span class="s4">= </span><span class="s0">new </span><span class="s1">NodoLista(dato);</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s1">primerNodo </span><span class="s4">= </span><span class="s0">new </span><span class="s1">NodoLista(dato</span><span class="s4">, </span><span class="s1">primerNodo);</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s2">// Insertar al final</span>
+    <span class="s0">public void </span><span class="s1">insertarAlFinal(</span><span class="s0">int </span><span class="s1">dato) {</span>
+        <span class="s0">if </span><span class="s1">(estaVacia()) {</span>
+            <span class="s1">primerNodo </span><span class="s4">= </span><span class="s1">ultimoNodo </span><span class="s4">= </span><span class="s0">new </span><span class="s1">NodoLista(dato);</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s1">ultimoNodo </span><span class="s4">= </span><span class="s1">ultimoNodo.sigNodo </span><span class="s4">= </span><span class="s0">new </span><span class="s1">NodoLista(dato);</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s2">// Imprimir la lista</span>
+    <span class="s0">public void </span><span class="s1">imprimir() {</span>
+        <span class="s0">if </span><span class="s1">(estaVacia()) {</span>
+            <span class="s1">System.out.println(</span><span class="s3">&quot;La lista está vacía&quot;</span><span class="s1">);</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s1">NodoLista aux </span><span class="s4">= </span><span class="s1">primerNodo;</span>
+            <span class="s0">while </span><span class="s1">(aux </span><span class="s4">!= </span><span class="s0">null</span><span class="s1">) {</span>
+                <span class="s1">System.out.print(aux.dato </span><span class="s4">+ </span><span class="s3">&quot;-&gt;&quot;</span><span class="s1">);</span>
+                <span class="s1">aux </span><span class="s4">= </span><span class="s1">aux.sigNodo;</span>
+            <span class="s1">}</span>
+            <span class="s1">System.out.println();</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+
+    <span class="s2">// Insertar en una posición específica</span>
+    <span class="s0">public void </span><span class="s1">insertarEnPosicion(</span><span class="s0">int </span><span class="s1">dato</span><span class="s4">, </span><span class="s0">int </span><span class="s1">posicion) {</span>
+        <span class="s0">if </span><span class="s1">(posicion </span><span class="s4">&lt;= </span><span class="s5">0 </span><span class="s4">|| </span><span class="s1">estaVacia()) {</span>
+            <span class="s1">insertarAlFrente(dato);</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s1">NodoLista actual </span><span class="s4">= </span><span class="s1">primerNodo;</span>
+            <span class="s0">int </span><span class="s1">contador </span><span class="s4">= </span><span class="s5">0</span><span class="s1">;</span>
+
+            <span class="s0">while </span><span class="s1">(actual </span><span class="s4">!= </span><span class="s0">null </span><span class="s4">&amp;&amp; </span><span class="s1">contador </span><span class="s4">&lt; </span><span class="s1">posicion </span><span class="s4">- </span><span class="s5">1</span><span class="s1">) {</span>
+                <span class="s1">actual </span><span class="s4">= </span><span class="s1">actual.sigNodo;</span>
+                <span class="s1">contador</span><span class="s4">++</span><span class="s1">;</span>
+            <span class="s1">}</span>
+
+            <span class="s0">if </span><span class="s1">(actual </span><span class="s4">== </span><span class="s0">null </span><span class="s4">|| </span><span class="s1">actual.sigNodo </span><span class="s4">== </span><span class="s0">null</span><span class="s1">) {</span>
+                <span class="s1">insertarAlFinal(dato);</span>
+            <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+                <span class="s1">actual.sigNodo </span><span class="s4">= </span><span class="s0">new </span><span class="s1">NodoLista(dato</span><span class="s4">, </span><span class="s1">actual.sigNodo);</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s2">// Eliminar del frente</span>
+    <span class="s0">public int </span><span class="s1">eliminarDelFrente() {</span>
+        <span class="s0">int </span><span class="s1">datoAEliminar </span><span class="s4">= -</span><span class="s5">1</span><span class="s1">;</span>
+        <span class="s0">if </span><span class="s1">(</span><span class="s4">!</span><span class="s1">estaVacia()) {</span>
+            <span class="s1">datoAEliminar </span><span class="s4">= </span><span class="s1">primerNodo.dato;</span>
+            <span class="s0">if </span><span class="s1">(primerNodo </span><span class="s4">== </span><span class="s1">ultimoNodo) {</span>
+                <span class="s1">primerNodo </span><span class="s4">= </span><span class="s1">ultimoNodo </span><span class="s4">= </span><span class="s0">null</span><span class="s1">;</span>
+            <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+                <span class="s1">primerNodo </span><span class="s4">= </span><span class="s1">primerNodo.sigNodo;</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+        <span class="s0">return </span><span class="s1">datoAEliminar;</span>
+    <span class="s1">}</span>
+
+    <span class="s2">// Eliminar al final</span>
+    <span class="s0">public int </span><span class="s1">eliminarAlFinal() {</span>
+        <span class="s0">int </span><span class="s1">datoAEliminar </span><span class="s4">= -</span><span class="s5">1</span><span class="s1">;</span>
+        <span class="s0">if </span><span class="s1">(</span><span class="s4">!</span><span class="s1">estaVacia()) {</span>
+            <span class="s0">if </span><span class="s1">(primerNodo </span><span class="s4">== </span><span class="s1">ultimoNodo) {</span>
+                <span class="s1">datoAEliminar </span><span class="s4">= </span><span class="s1">primerNodo.dato;</span>
+                <span class="s1">primerNodo </span><span class="s4">= </span><span class="s1">ultimoNodo </span><span class="s4">= </span><span class="s0">null</span><span class="s1">;</span>
+            <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+                <span class="s1">NodoLista actual </span><span class="s4">= </span><span class="s1">primerNodo;</span>
+                <span class="s0">while </span><span class="s1">(actual.sigNodo </span><span class="s4">!= </span><span class="s1">ultimoNodo) {</span>
+                    <span class="s1">actual </span><span class="s4">= </span><span class="s1">actual.sigNodo;</span>
+                <span class="s1">}</span>
+                <span class="s1">datoAEliminar </span><span class="s4">= </span><span class="s1">ultimoNodo.dato;</span>
+                <span class="s1">ultimoNodo </span><span class="s4">= </span><span class="s1">actual;</span>
+                <span class="s1">ultimoNodo.sigNodo </span><span class="s4">= </span><span class="s0">null</span><span class="s1">;</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+        <span class="s0">return </span><span class="s1">datoAEliminar;</span>
+    <span class="s1">}</span>
+
+    <span class="s2">// Eliminar en una posición específica</span>
+    <span class="s0">public int </span><span class="s1">eliminarEnPosicion(</span><span class="s0">int </span><span class="s1">posicion) {</span>
+        <span class="s0">if </span><span class="s1">(posicion </span><span class="s4">&lt;= </span><span class="s5">0 </span><span class="s4">|| </span><span class="s1">estaVacia()) {</span>
+            <span class="s0">return </span><span class="s1">eliminarDelFrente();</span>
+        <span class="s1">}</span>
+
+        <span class="s1">NodoLista actual </span><span class="s4">= </span><span class="s1">primerNodo;</span>
+        <span class="s1">NodoLista previo </span><span class="s4">= </span><span class="s0">null</span><span class="s1">;</span>
+        <span class="s0">int </span><span class="s1">contador </span><span class="s4">= </span><span class="s5">0</span><span class="s1">;</span>
+
+        <span class="s0">while </span><span class="s1">(actual </span><span class="s4">!= </span><span class="s0">null </span><span class="s4">&amp;&amp; </span><span class="s1">contador </span><span class="s4">&lt; </span><span class="s1">posicion) {</span>
+            <span class="s1">previo </span><span class="s4">= </span><span class="s1">actual;</span>
+            <span class="s1">actual </span><span class="s4">= </span><span class="s1">actual.sigNodo;</span>
+            <span class="s1">contador</span><span class="s4">++</span><span class="s1">;</span>
+        <span class="s1">}</span>
+
+        <span class="s0">if </span><span class="s1">(actual </span><span class="s4">== </span><span class="s0">null</span><span class="s1">) {</span>
+            <span class="s0">return </span><span class="s4">-</span><span class="s5">1</span><span class="s1">; </span><span class="s2">// Posición no válida</span>
+        <span class="s1">} </span><span class="s0">else if </span><span class="s1">(actual </span><span class="s4">== </span><span class="s1">ultimoNodo) {</span>
+            <span class="s0">return </span><span class="s1">eliminarAlFinal();</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s1">previo.sigNodo </span><span class="s4">= </span><span class="s1">actual.sigNodo;</span>
+            <span class="s0">return </span><span class="s1">actual.dato;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s2">// Buscar un dato</span>
+    <span class="s0">public boolean </span><span class="s1">buscar(</span><span class="s0">int </span><span class="s1">dato) {</span>
+        <span class="s1">NodoLista actual </span><span class="s4">= </span><span class="s1">primerNodo;</span>
+        <span class="s0">while </span><span class="s1">(actual </span><span class="s4">!= </span><span class="s0">null</span><span class="s1">) {</span>
+            <span class="s0">if </span><span class="s1">(actual.dato </span><span class="s4">== </span><span class="s1">dato) {</span>
+                <span class="s0">return true</span><span class="s1">;</span>
+            <span class="s1">}</span>
+            <span class="s1">actual </span><span class="s4">= </span><span class="s1">actual.sigNodo;</span>
+        <span class="s1">}</span>
+        <span class="s0">return false</span><span class="s1">;</span>
+    <span class="s1">}</span>
+
+    <span class="s2">// Ordenamiento usando el método burbuja</span>
+    <span class="s0">public void </span><span class="s1">ordenarBurbuja() {</span>
+        <span class="s0">if </span><span class="s1">(</span><span class="s4">!</span><span class="s1">estaVacia()) {</span>
+            <span class="s0">boolean </span><span class="s1">intercambio;</span>
+            <span class="s0">do </span><span class="s1">{</span>
+                <span class="s1">intercambio </span><span class="s4">= </span><span class="s0">false</span><span class="s1">;</span>
+                <span class="s1">NodoLista actual </span><span class="s4">= </span><span class="s1">primerNodo;</span>
+
+                <span class="s0">while </span><span class="s1">(actual </span><span class="s4">!= </span><span class="s0">null </span><span class="s4">&amp;&amp; </span><span class="s1">actual.sigNodo </span><span class="s4">!= </span><span class="s0">null</span><span class="s1">) {</span>
+                    <span class="s0">if </span><span class="s1">(actual.dato </span><span class="s4">&gt; </span><span class="s1">actual.sigNodo.dato) {</span>
+                        <span class="s2">// Intercambiar datos</span>
+                        <span class="s0">int </span><span class="s1">temp </span><span class="s4">= </span><span class="s1">actual.dato;</span>
+                        <span class="s1">actual.dato </span><span class="s4">= </span><span class="s1">actual.sigNodo.dato;</span>
+                        <span class="s1">actual.sigNodo.dato </span><span class="s4">= </span><span class="s1">temp;</span>
+
+                        <span class="s1">intercambio </span><span class="s4">= </span><span class="s0">true</span><span class="s1">;</span>
+                    <span class="s1">}</span>
+                    <span class="s1">actual </span><span class="s4">= </span><span class="s1">actual.sigNodo;</span>
+                <span class="s1">}</span>
+            <span class="s1">} </span><span class="s0">while </span><span class="s1">(intercambio);</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+</pre>
+</body>
+</html>
